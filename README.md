@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+## Setup the Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```bash
+npx create-react-app my-app
+cd my-app
+npm install react-router-dom
 
-## Available Scripts
+```
 
-In the project directory, you can run:
+## Add empty pages
 
-### `npm start`
+**src/RegisterPage.js**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```javascript
+// src/RegisterPage.js
+import React from "react";
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+function RegisterPage() {
+  return (
+    <div>
+      <h1>Register Page</h1>
+    </div>
+  );
+}
 
-### `npm test`
+export default RegisterPage;
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**src/LoginPage.js**
 
-### `npm run build`
+```javascript
+// src/LoginPage.js
+import React from "react";
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+function LoginPage() {
+  return (
+    <div>
+      <h1>Login Page</h1>
+    </div>
+  );
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default LoginPage;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**src/CategoriesList.js**
 
-### `npm run eject`
+```javascript
+// src/CategoriesList.js
+import React from "react";
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+function CategoriesList() {
+  return (
+    <div>
+      <h1>Categories List</h1>
+    </div>
+  );
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default CategoriesList;
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**src/CreateCategory.js**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```javascript
+// src/CreateCategory.js
+import React from "react";
 
-## Learn More
+function CreateCategory() {
+  return (
+    <div>
+      <h1>Create Category</h1>
+    </div>
+  );
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default CreateCategory;
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**src/App.js**
 
-### Code Splitting
+```javascript
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import RegisterPage from "./RegisterPage";
+import LoginPage from "./LoginPage";
+import CategoriesList from "./CategoriesList";
+import CreateCategory from "./CreateCategory";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/categories" element={<CategoriesList />} />
+        <Route path="/create-category" element={<CreateCategory />} />
+      </Routes>
+    </Router>
+  );
+}
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default App;
+```
